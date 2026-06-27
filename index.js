@@ -340,7 +340,7 @@ app.post("/send-email", upload.single("Resume"), async (req, res) => {
 
     const mailOptions = {
       from: `"Scholarship Application" <shahzadumar.it01@gmail.com>`,
-      to: "shahzad890.it@outlook.com",
+       to: "lawstudents@nationalbar.org",
       subject: `Scholarship App: ${data["Full legal name"] || "New Applicant"}`,
       html: emailHtml,
       attachments: file ? [{ filename: file.originalname, path: file.path }] : []
@@ -446,7 +446,7 @@ app.post("/send-bar-exam-email", barExamUploads, async (req, res) => {
 
     const mailOptions = {
       from: `"Bar Exam App" <rheonna.reese@gmail.com>`,
-      to: "shahzad890.it@outlook.com",
+        to: "lawstudents@nationalbar.org",
       subject: `Bar Exam Scholarship: ${data["Full legal name"] || "New Applicant"}`,
       html: emailHtmlBarLaw,
       attachments: attachments
@@ -469,6 +469,9 @@ app.post("/send-bar-exam-email", barExamUploads, async (req, res) => {
 });
 
 // module.exports = app;
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
-});
+// app.listen(3000, () => {
+//   console.log("Server is running on http://localhost:3000");
+// });
+
+// end of file
+module.exports = app;
