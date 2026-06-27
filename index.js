@@ -240,6 +240,8 @@ app.post("/send-bar-exam-email", barExamUploads, async (req, res) => {
     res.status(500).json({ success: false, message: "Could not send Bar Exam application." });
   }
 });
-app.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
-});
+// app.listen(3000, () => {
+//   console.log("Server is running on http://localhost:3000");
+// });
+// end of file
+module.exports = app;
