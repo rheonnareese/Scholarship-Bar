@@ -475,7 +475,7 @@ app.get("/bar-exam-scholarship", (req, res) => {
 });
 
 app.get("/convention-access-scholarship", (req, res) => {
-  res.sendFile(path.join(__dirname, "bar.html"));
+  res.sendFile(path.join(__dirname, "convention.html"));
 });
 
 // module.exports = app;
