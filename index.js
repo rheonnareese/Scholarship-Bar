@@ -257,6 +257,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(__dirname));
 
 // VERCEL FIX: Writable directory sirf "/tmp" hoti hai
 const uploadDir = os.tmpdir(); 
@@ -466,6 +467,15 @@ app.post("/send-bar-exam-email", barExamUploads, async (req, res) => {
     console.error("Email Error:", error);
     res.status(500).json({ success: false, message: "Could not send Bar Exam application." });
   }
+});
+
+
+app.get("/bar-exam-scholarship", (req, res) => {
+  res.sendFile(path.join(__dirname, "bar.html"));
+});
+
+app.get("/convention-access-scholarship", (req, res) => {
+  res.sendFile(path.join(__dirname, "bar.html"));
 });
 
 // module.exports = app;

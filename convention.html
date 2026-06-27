@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NBA LSD 2026 Convention Access Scholarship</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root{
+    --ink:#16202e;
+    --ink-soft:#5c6675;
+    --paper:#f6f4ef;
+    --card:#ffffff;
+    --line:#e3ddd2;
+    --navy:#0f2747;
+    --navy-soft:#1c3a63;
+    --gold:#b08328;
+    --gold-deep:#8a6418;
+    --gold-bright:#caa23f;
+    --focus:#b08328;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;min-height:100vh}
+  @media (prefers-reduced-motion: reduce){*{animation:none !important;transition:none !important}}
+  .stage{max-width:780px;margin:0 auto;padding:0 24px}
+  a{color:var(--gold-deep)}
+
+  /* ---------- COVER ---------- */
+  #cover{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 0;
+    background:radial-gradient(130% 70% at 50% -15%, #ece6d8 0%, var(--paper) 58%);position:relative;overflow:hidden}
+  #cover::before{content:"";position:absolute;inset:0;
+    background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:28px 28px;opacity:.45;
+    -webkit-mask-image:radial-gradient(70% 60% at 50% 38%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 38%,#000,transparent)}
+  .cover-inner{position:relative;text-align:center;padding:64px 0;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+  .crest{width:66px;height:66px;margin:0 auto 26px;border:1.5px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--gold-deep);position:relative}
+  .crest::after{content:"";position:absolute;inset:-9px;border:1px solid var(--line);border-radius:50%}
+  .crest svg{width:31px;height:31px}
+  .eyebrow{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:20px}
+  #cover h1{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(34px,6.2vw,60px);line-height:1.04;letter-spacing:-.01em;margin-bottom:8px;color:var(--navy)}
+  .city{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(18px,3vw,24px);color:var(--gold-deep);margin-bottom:22px}
+  .lede{font-size:clamp(15.5px,2.3vw,18px);color:var(--ink-soft);max-width:34em;margin:0 auto 34px}
+  .facts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:40px}
+  .fact{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 18px;font-size:13.5px;display:flex;align-items:center;gap:8px}
+  .fact b{font-weight:700}
+  .fact svg{width:15px;height:15px;color:var(--gold-deep);flex:none}
+  .btn{font-family:'Inter';font-size:16px;font-weight:600;cursor:pointer;border:none;border-radius:999px;padding:16px 40px;
+    background:var(--navy);color:#f7f1e3;transition:transform .18s,box-shadow .18s,background .18s;box-shadow:0 8px 26px -10px rgba(15,39,71,.75)}
+  .btn:hover{transform:translateY(-2px);background:var(--navy-soft);box-shadow:0 14px 32px -12px rgba(15,39,71,.85)}
+  .btn:active{transform:translateY(0)}
+  .btn:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+  .prep{margin-top:16px;font-size:13px;color:var(--ink-soft)}
+  .prep a{font-weight:600}
+  .deadline-banner{display:inline-flex;align-items:center;gap:9px;background:#fbf4e3;border:1px solid #e6d49f;
+    color:#6b4e16;border-radius:12px;padding:11px 18px;font-size:13.5px;font-weight:500;margin:0 auto 30px;max-width:34em;text-align:left;line-height:1.45}
+  .deadline-banner svg{width:17px;height:17px;flex:none;color:var(--gold-deep)}
+  .deadline-banner b{font-weight:700}
+  .sponsor-ack{margin:26px auto 0;max-width:36em;font-size:12.5px;color:var(--ink-soft);line-height:1.5}
+  .sponsor-ack b{color:var(--navy);font-weight:600}
+
+  /* ---------- WHY ATTEND (cover) ---------- */
+  .why{position:relative;max-width:780px;margin:0 auto;padding:8px 24px 88px;animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
+  .why-head{text-align:center;margin-bottom:38px}
+  .why-head .eyebrow{margin-bottom:14px}
+  .why-head h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(26px,4.4vw,38px);color:var(--navy);line-height:1.12;letter-spacing:-.01em}
+  .why-head p{color:var(--ink-soft);font-size:15.5px;max-width:32em;margin:14px auto 0}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:600px){.why-grid{grid-template-columns:1fr}}
+  .why-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;text-align:left;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .why-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 16px 34px -22px rgba(15,39,71,.5)}
+  .why-ico{width:42px;height:42px;border-radius:11px;background:#f3eddf;display:flex;align-items:center;justify-content:center;color:var(--navy);margin-bottom:15px}
+  .why-ico svg{width:21px;height:21px}
+  .why-card h3{font-size:16.5px;font-weight:700;color:var(--navy);margin-bottom:7px;letter-spacing:-.01em}
+  .why-card p{font-size:14px;color:var(--ink-soft);line-height:1.55}
+  .why-quote{margin:38px auto 0;max-width:34em;text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(18px,2.8vw,23px);color:var(--navy);line-height:1.42}
+  .why-quote span{display:block;font-family:'Inter';font-style:normal;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-top:16px}
+  .why-cta{text-align:center;margin-top:46px}
+  .scroll-cue{display:inline-flex;flex-direction:column;align-items:center;gap:5px;margin-top:30px;color:var(--ink-soft);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;animation:bob 2s ease-in-out infinite}
+  .scroll-cue svg{width:18px;height:18px}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+  /* ---------- APP ---------- */
+  #app{display:none;padding:0 0 90px;animation:fade .5s ease both}
+  .topbar{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-bottom:32px}
+  .topbar-in{max-width:780px;margin:0 auto;padding:13px 24px;display:flex;align-items:center;gap:16px}
+  .mark{font-family:'Playfair Display',serif;font-weight:600;font-size:16px;color:var(--navy);white-space:nowrap}
+  .progress{flex:1;height:6px;background:var(--line);border-radius:99px;overflow:hidden}
+  .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold-bright),var(--gold-deep));border-radius:99px;transition:width .4s cubic-bezier(.4,0,.2,1)}
+  .stepcount{font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  .step{display:none}
+  .step.active{display:block;animation:slide .45s cubic-bezier(.2,.7,.2,1) both}
+  .step-eyebrow{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:10px}
+  .step h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(25px,4.2vw,34px);letter-spacing:-.01em;margin-bottom:8px;color:var(--navy)}
+  .step-sub{color:var(--ink-soft);margin-bottom:28px;font-size:15px}
+
+  .field{margin-bottom:22px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:560px){.row{grid-template-columns:1fr}}
+  label{display:block;font-size:13px;font-weight:600;margin-bottom:7px}
+  .req{color:var(--gold-deep)}
+  input[type=text],input[type=email],input[type=tel],input[type=date],select,textarea{
+    width:100%;font-family:'Inter';font-size:15px;color:var(--ink);background:var(--card);
+    border:1px solid var(--line);border-radius:10px;padding:13px 14px;transition:border-color .15s,box-shadow .15s}
+  textarea{resize:vertical;min-height:140px;line-height:1.6}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(176,131,40,.16)}
+  .hint{font-size:12.5px;color:var(--ink-soft);margin-top:6px}
+  .counter{float:right;font-variant-numeric:tabular-nums}
+  .err{border-color:#c0392b !important;box-shadow:0 0 0 3px rgba(192,57,43,.13) !important}
+  .err-msg{color:#c0392b;font-size:12.5px;margin-top:6px;display:none}
+  .err-msg.show{display:block}
+
+  /* info / benefit panels */
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-bottom:20px}
+  .panel h3{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:14px}
+  .panel ul{list-style:none;display:grid;gap:11px}
+  .panel li{display:flex;gap:11px;font-size:14.5px;align-items:flex-start}
+  .panel li svg{width:17px;height:17px;color:var(--navy);flex:none;margin-top:2px}
+  .agenda li{align-items:baseline}
+  .agenda .day{font-weight:700;color:var(--navy);min-width:96px;display:inline-block}
+  @media(max-width:480px){.agenda .day{display:block;min-width:0;margin-bottom:1px}}
+
+  /* checkbox commitments */
+  .check{display:flex;gap:13px;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:15px 16px;cursor:pointer;transition:border-color .15s,background .15s;margin-bottom:12px}
+  .check:hover{border-color:var(--gold)}
+  .check.checked{border-color:var(--gold);background:#fdfaf2}
+  .check input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--navy)}
+  .check span{font-size:14.5px}
+  .check small{display:block;color:var(--ink-soft);font-size:12.5px;margin-top:2px}
+  .inline-link{color:var(--gold-deep);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(138,100,24,.35)}
+  .inline-link:hover{border-bottom-color:var(--gold-deep)}
+  .subhead{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin:28px 0 12px}
+
+  /* file upload */
+  .drop{border:1.5px dashed var(--line);border-radius:14px;padding:30px 20px;text-align:center;background:var(--card);
+    cursor:pointer;transition:border-color .15s,background .15s}
+  .drop:hover{border-color:var(--gold);background:#fdfaf2}
+  .drop.has{border-style:solid;border-color:var(--gold)}
+  .drop svg{width:30px;height:30px;color:var(--navy);margin-bottom:10px}
+  .drop .big{font-size:15px;font-weight:600;color:var(--navy)}
+  .drop .small{font-size:12.5px;color:var(--ink-soft);margin-top:4px}
+  .filename{margin-top:14px;font-size:14px;font-weight:600;color:var(--navy);display:none;align-items:center;gap:8px;justify-content:center}
+  .filename svg{width:16px;height:16px;margin:0;color:var(--gold-deep)}
+
+  /* review */
+  .summary{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:8px}
+  .summary-row{display:flex;justify-content:space-between;gap:18px;padding:13px 18px;border-bottom:1px solid var(--line);font-size:14px}
+  .summary-row:last-child{border-bottom:none}
+  .summary-row .k{color:var(--ink-soft);flex:none;max-width:48%}
+  .summary-row .v{font-weight:500;text-align:right;word-break:break-word}
+  .summary-row .v.empty{color:#c0392b;font-weight:400}
+
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-top:34px;gap:14px}
+  .back{background:none;border:none;color:var(--ink-soft);font-family:'Inter';font-size:14.5px;font-weight:600;cursor:pointer;padding:10px 4px;transition:color .15s}
+  .back:hover{color:var(--ink)}
+  .back:disabled{opacity:0;pointer-events:none}
+  .next{font-family:'Inter';font-size:15px;font-weight:600;cursor:pointer;border:none;border-radius:999px;padding:14px 32px;background:var(--navy);color:#f7f1e3;transition:transform .16s,background .16s}
+  .next:hover{transform:translateY(-1px);background:var(--navy-soft)}
+  .next:focus-visible,.back:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+
+  /* done */
+  #done{display:none;text-align:center;padding:96px 0;animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+  #done .crest{margin-bottom:26px}
+  #done h2{font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(28px,5vw,42px);margin-bottom:14px;color:var(--navy)}
+  #done p{color:var(--ink-soft);max-width:30em;margin:0 auto 14px}
+
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+  @keyframes fade{from{opacity:0}to{opacity:1}}
+  @keyframes slide{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:translateX(0)}}
+</style>
+</head>
+<body>
+
+<!-- ============ COVER ============ -->
+<section id="cover">
+  <div class="stage">
+    <div class="cover-inner">
+      <div class="crest" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/><path d="M22 10v5"/>
+        </svg>
+      </div>
+      <p class="eyebrow">NBA Law Student Division</p>
+      <h1>2026 Convention Access Scholarship</h1>
+      <p class="city">101st NBA Annual Convention · Nashville, Tennessee</p>
+      <p class="lede">Supporting law students who wish to attend the convention, July 25–31, 2026. Selected recipients receive sponsored registration, hotel accommodations, and flight reimbursement up to $500.</p>
+
+      <div class="facts">
+        <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V7l8-4 8 4v14M9 9h.01M9 13h.01M9 17h.01"/></svg>Sponsored <b>registration</b></div>
+        <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3"/></svg><b>5 nights</b> hotel</div>
+        <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2Z"/></svg>Flights up to <b>$500</b></div>
+      </div>
+
+      <div style="text-align:center"><div class="deadline-banner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg>
+        <span>We've received additional sponsorships and <b>extended the deadline</b>. Applicants will be notified by <b>July 3, 2026</b>.</span>
+      </div></div>
+
+      <button class="btn" id="startBtn">Begin your application</button>
+      <p class="prep">Questions? <a href="mailto:lawstudents@nationalbar.org">lawstudents@nationalbar.org</a> · <a href="https://events.nationalbar.org/nashville/" target="_blank" rel="noopener">Convention details</a></p>
+
+      <p class="sponsor-ack">Generous sponsorships have been supported by the <b>Commercial Law Section</b>, the <b>National Bar Institute</b>, and the <b>Labor &amp; Employment Division</b>.</p>
+
+      <a class="scroll-cue" href="#why" aria-label="See why you should attend">
+        Why attend
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ATTEND -->
+<section id="whysection">
+  <div class="why" id="why">
+    <div class="why-head">
+      <p class="eyebrow">Why this matters</p>
+      <h2>One week that can change your trajectory</h2>
+      <p>The NBA Annual Convention is where the nation's Black legal community gathers — judges, partners, general counsel, and the students who will join their ranks. This scholarship puts you in the room.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Build a career-long network</h3>
+        <p>Meet practicing attorneys, recruiters, and judges face to face. The connections you make here become mentors, references, and the people who think of you when a position opens.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+        <h3>Attend exceptional programming</h3>
+        <p>Sit in on substantive sessions across practice areas — from trial advocacy to emerging law — and leave convention week knowing more than you did walking in.</p>
+      </div>
+    </div>
+
+    <p class="why-quote">
+      Opportunities like this don't come around often. Show up, contribute, and let the profession get to know you.
+      <span>Sponsored · Nashville · July 25–31, 2026</span>
+    </p>
+
+    <div class="why-cta">
+      <button class="btn" id="startBtn2">Apply for your sponsored spot</button>
+      <p class="prep" style="margin-top:14px">Takes about 10 minutes · Have your law school details and a PDF resume ready</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<main id="app">
+  <div class="topbar">
+    <div class="topbar-in">
+      <span class="mark">Convention Access Scholarship</span>
+      <div class="progress"><span id="bar"></span></div>
+      <span class="stepcount" id="count">1 / 8</span>
+    </div>
+  </div>
+
+  <div class="stage">
+    <form id="form" novalidate>
+
+      <!-- STEP 1 — Applicant Information -->
+      <section class="step active" data-step="1">
+        <p class="step-eyebrow">Section 1 · Applicant</p>
+        <h2>Applicant information</h2>
+        <p class="step-sub">Tell us who you are and how to reach you.</p>
+        <div class="field"><label>Full legal name <span class="req">*</span></label><input type="text" name="Full legal name" required><p class="err-msg">Please enter your full legal name.</p></div>
+        <div class="row">
+          <div class="field"><label>Preferred name (if different)</label><input type="text" name="Preferred name"></div>
+          <div class="field"><label>Email address <span class="req">*</span></label><input type="email" name="Email" required><p class="err-msg">Enter a valid email address.</p></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Phone number <span class="req">*</span></label><input type="tel" name="Phone" required><p class="err-msg">Please enter a phone number.</p></div>
+          <div class="field"><label>City, State <span class="req">*</span></label><input type="text" name="City, State" placeholder="e.g. Atlanta, GA" required><p class="err-msg">Please enter your city and state.</p></div>
+        </div>
+        <div class="row">
+          <div class="field"><label>Law school <span class="req">*</span></label><input type="text" name="Law school" required><p class="err-msg">Please enter your law school.</p></div>
+          <div class="field"><label>Graduation year (Month/Year) <span class="req">*</span></label><input type="text" name="Graduation (Mo/Yr)" placeholder="e.g. May 2027" required><p class="err-msg">Please enter your graduation date.</p></div>
+        </div>
+      </section>
+
+      <!-- STEP 2 — Required Convention Attendance (info only) -->
+      <section class="step" data-step="2">
+        <p class="step-eyebrow">Section 2 · What to attend</p>
+        <h2>Expected convention attendance</h2>
+        <p class="step-sub">Here's what's expected of recipients from our sponsors, and what's recommended to help you get the most from your week.</p>
+        <div class="panel">
+          <h3>Sponsorship recipients receive</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Full convention registration</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Five (5) nights of hotel accommodations at the convention hotel, the <a href="https://www.marriott.com/en-us/hotels/bnago-gaylord-opryland-resort-and-convention-center/overview/" target="_blank" rel="noopener" class="inline-link">Gaylord Opryland Resort &amp; Convention Center</a>, or the sister hotel, <a href="https://www.marriott.com/en-us/hotels/bnagi-the-inn-at-opryland-a-gaylord-hotel/overview/" target="_blank" rel="noopener" class="inline-link">The Inn at Opryland</a></li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Flight reimbursement up to $500</li>
+          </ul>
+        </div>
+        <div class="panel agenda">
+          <h3>Recipients are expected to attend</h3>
+          <ul>
+            <li><span class="day">Pre-event</span>Pre-Conference Webinar — how to make the most of your convention experience</li>
+            <li><span class="day">Sunday</span>Law Student Division Meeting</li>
+            <li><span class="day">Monday</span>National Bar Institute Meeting at 11:00 AM — the NBI would like to welcome you!</li>
+            <li><span class="day">Monday</span>Presidential Showcase</li>
+            <li><span class="day">Tuesday</span>President's Ball</li>
+            <li><span class="day">All week</span>At least one additional section, division, CLE, or other programming session of interest</li>
+            <li><span class="day">All week</span>Volunteer four (4) hours during the convention</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Recommended attendance</h3>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Programming hosted by the Law Student Division</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Candidates' parties</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Your fraternity / sorority events</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Your alumni and law school breakfasts</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Your local, regional, or affiliate events</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>Meet and thank the sections and divisions who helped make this possible</li>
+          </ul>
+          <p style="margin-top:14px;font-style:italic;color:var(--ink-soft);font-size:14px">Say yes to the receptions, breakfasts, and after-hours events — this is where relationships are built. Meet people, build relationships, and have fun.</p>
+        </div>
+        <p style="font-size:15.5px;color:var(--ink);margin-top:4px">Full programming details: <a href="https://events.nationalbar.org/nashville/" target="_blank" rel="noopener" class="inline-link">events.nationalbar.org/nashville</a></p>
+      </section>
+
+      <!-- STEP 3 — Required Commitments -->
+      <section class="step" data-step="3">
+        <p class="step-eyebrow">Section 3 · Commitments</p>
+        <h2>Required commitments</h2>
+        <p class="step-sub">Please confirm each of the following. All boxes are required.</p>
+        <div id="commitGroup">
+          <label class="check"><input type="checkbox" name="Commit: acknowledge expectations" required><span>I acknowledge what's expected of recipients and do not foresee any challenges meeting those expectations.</span></label>
+          <label class="check"><input type="checkbox" name="Commit: NBA LSD member" required><span>I am a member of the NBA Law Student Division.<small>Membership is free; voting membership is $20. <a href="https://nationalbar.org/membership/law-student-pre-law-membership" target="_blank" rel="noopener" class="inline-link">Law Student &amp; Pre-Law Membership →</a></small></span></label>
+          <label class="check"><input type="checkbox" name="Commit: willing to share room" required><span>I am willing to share hotel accommodations with another scholarship recipient.</span></label>
+          <label class="check"><input type="checkbox" name="Commit: 4 hrs volunteer" required><span>I Commit to a minimum of four (4) hours of volunteer service in support of the convention.</span></label>
+          <label class="check"><input type="checkbox" name="Commit: will notify if unable" required><span>If selected and I am no longer able to attend, I agree to immediately notify the Law Student Division so this opportunity may be offered to another law student.</span></label>
+        </div>
+        <p class="err-msg" id="commitErr">Please confirm all five commitments to continue.</p>
+
+        <h3 class="subhead">Additional details <span class="hint" style="font-weight:400;text-transform:none;letter-spacing:0">(optional)</span></h3>
+        <label class="check"><input type="checkbox" name="Pref: NBA purchase flight directly"><span>If selected, to avoid a hardship it would be helpful if the NBA would purchase my flight directly.</span></label>
+        <label class="check"><input type="checkbox" id="roomPref" name="Pref: room with known applicants"><span>I know others who have applied, and if we are both selected, I would like to room with them.</span></label>
+        <div class="field reveal" id="roomNamesWrap" hidden style="margin-top:12px">
+          <label>Who would you like to room with? <span class="hint">List their names.</span></label>
+          <input type="text" name="Roommate names" id="roomNames" placeholder="e.g. Jordan Smith, Taylor Reed">
+        </div>
+      </section>
+
+      <!-- STEP 4 — Statement of Interest -->
+      <section class="step" data-step="4">
+        <p class="step-eyebrow">Section 4 · Statement of interest</p>
+        <h2>Making the most of it</h2>
+        <p class="step-sub">This is the part the committee reads most closely.</p>
+        <div class="field">
+          <label>What do you hope to gain from attending the convention, and how will you make the most of the experience? <span class="req">*</span> <span class="counter hint"><span id="soiCount">0</span> / 250 words</span></label>
+          <textarea name="Statement of interest" id="soi" required placeholder="250 words max"></textarea>
+          <p class="err-msg">Please share your statement of interest.</p>
+        </div>
+      </section>
+
+      <!-- STEP 5 — Leadership & Involvement -->
+      <section class="step" data-step="5">
+        <p class="step-eyebrow">Section 5 · Leadership & involvement</p>
+        <h2>Your leadership & service</h2>
+        <p class="step-sub">Tell us how you show up in law school or your community.</p>
+        <div class="field">
+          <label>Briefly describe your leadership, service, or involvement in law school or your community. <span class="req">*</span> <span class="counter hint"><span id="leadCount">0</span> / 150 words</span></label>
+          <textarea name="Leadership & involvement" id="lead" required placeholder="150 words max"></textarea>
+          <p class="err-msg">Please describe your leadership or involvement.</p>
+        </div>
+      </section>
+
+      <!-- STEP 6 — Resume + Additional -->
+      <section class="step" data-step="6">
+        <p class="step-eyebrow">Section 7–8 · Documents & notes</p>
+        <h2>A few more details</h2>
+        <p class="step-sub">A resume is required. Additional notes are optional.</p>
+
+        <div class="field">
+          <label>Resume upload <span class="req">*</span></label>
+          <div class="drop" id="drop" role="button" tabindex="0" aria-label="Upload your resume PDF">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M5 16v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg>
+            <div class="big">Click to upload your resume</div>
+            <div class="small">PDF only · 1 file max</div>
+            <div class="filename" id="filename"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg><span id="filenameText"></span></div>
+          </div>
+          <input type="file" name="Resume" id="resume" accept="application/pdf,.pdf" hidden required>
+          <p class="err-msg" id="resumeErr">Please upload your resume as a PDF.</p>
+        </div>
+
+        <div class="field">
+          <label>Additional considerations <span class="hint">(optional)</span></label>
+          <textarea name="Additional considerations" placeholder="Anything else you'd like the scholarship committee to consider?"></textarea>
+        </div>
+
+        <h3 class="subhead">Award announcement</h3>
+        <div class="field">
+          <label>If selected, may we announce your award and share your name and photo in NBA Law Student Division communications and promotional materials? <span class="req">*</span></label>
+          <div id="promoGroup">
+            <label class="check"><input type="radio" name="Announcement consent" value="Yes, I consent" required style="border-radius:50%"><span>Yes — I consent to being recognized publicly.</span></label>
+            <label class="check"><input type="radio" name="Announcement consent" value="No, please ask first" style="border-radius:50%"><span>No — please contact me first before any public recognition.</span></label>
+          </div>
+          <p class="err-msg" id="promoErr">Please choose an option.</p>
+        </div>
+      </section>
+
+      <!-- STEP 7 — Review -->
+      <section class="step" data-step="7">
+        <p class="step-eyebrow">Review</p>
+        <h2>One last look</h2>
+        <p class="step-sub">Check your answers, then sign and submit.</p>
+        <div class="summary" id="summary"></div>
+      </section>
+
+      <!-- STEP 8 — Certification -->
+      <section class="step" data-step="8">
+        <p class="step-eyebrow">Section 9 · Certification</p>
+        <h2>Applicant certification</h2>
+        <p class="step-sub">By signing, you confirm your application is true and complete to the best of your knowledge.</p>
+        <div class="row">
+          <div class="field"><label>Type your full name as your digital signature <span class="req">*</span></label><input type="text" name="Signature" required><p class="err-msg">Please type your name to sign.</p></div>
+          <div class="field"><label>Date <span class="req">*</span></label><input type="date" name="Date signed" required><p class="err-msg">Please select a date.</p></div>
+        </div>
+      </section>
+
+      <div class="nav">
+        <button type="button" class="back" id="backBtn" disabled>← Back</button>
+        <button type="button" class="next" id="nextBtn">Continue</button>
+      </div>
+    </form>
+  </div>
+</main>
+
+<!-- ============ DONE ============ -->
+<section id="done">
+  <div class="stage">
+    <div class="crest" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </div>
+    <h2>Application received</h2>
+    <p>Thank you, <span id="doneName">applicant</span>, for applying to the NBA Law Student Division's 2026 Convention Access Scholarship. Your application has been received.</p>
+    <p>For questions, contact <a href="mailto:lawstudents@nationalbar.org">lawstudents@nationalbar.org</a>.</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  const TOTAL = 8;
+  let step = 1;
+  const $ = s => document.querySelector(s);
+  const cover=$('#cover'), app=$('#app'), done=$('#done');
+  const bar=$('#bar'), count=$('#count'), backBtn=$('#backBtn'), nextBtn=$('#nextBtn'), form=$('#form');
+
+  // Backend API URL (Convention Scholarship ke liye)
+  const API_URL = "https://scholarship-bar.vercel.app/send-email";
+
+  $('#startBtn').addEventListener('click',start);
+  $('#startBtn2').addEventListener('click',start);
+  
+  function start(){
+    cover.style.display='none';
+    app.style.display='block';
+    window.scrollTo(0,0);
+    render();
+  }
+
+  function render(){
+    document.querySelectorAll('.step').forEach(s=>s.classList.toggle('active',+s.dataset.step===step));
+    bar.style.width=(step/TOTAL*100)+'%';
+    count.textContent=step+' / '+TOTAL;
+    backBtn.disabled=step===1;
+    nextBtn.textContent= step===TOTAL ? 'Submit application' : 'Continue';
+    if(step===7) buildSummary();
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function validate(){
+    const active=document.querySelector('.step.active');
+    let ok=true;
+    
+    // Step 3: Required Commitments Checkboxes
+    if(step===3){
+      const boxes=[...$('#commitGroup').querySelectorAll('input[type=checkbox]')];
+      const allChecked=boxes.every(b=>b.checked);
+      $('#commitErr').classList.toggle('show',!allChecked);
+      return allChecked;
+    }
+    
+    // Step 6: Resume & Announcement Consent
+    if(step===6){
+      if(!$('#resume').files.length){ 
+        ok=false; 
+        $('#resumeErr').classList.add('show'); 
+        $('#drop').classList.add('err'); 
+      } else { 
+        $('#resumeErr').classList.remove('show'); 
+        $('#drop').classList.remove('err'); 
+      }
+      
+      const consentPicked=[...document.querySelectorAll('input[name="Announcement consent"]')].some(r=>r.checked);
+      if(!consentPicked){ ok=false; $('#promoErr').classList.add('show'); }
+      else { $('#promoErr').classList.remove('show'); }
+      return ok;
+    }
+
+    // General Validation for required fields
+    active.querySelectorAll('input[required]:not([type=checkbox]):not([type=file]), textarea[required]').forEach(f=>{
+      const msg=f.closest('.field')?.querySelector('.err-msg');
+      let bad= f.type==='email' ? !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.value.trim()) : !f.value.trim();
+      if(bad){ok=false;f.classList.add('err');if(msg)msg.classList.add('show');}
+      else{f.classList.remove('err');if(msg)msg.classList.remove('show');}
+    });
+    return ok;
+  }
+
+  nextBtn.addEventListener('click',()=>{ if(!validate())return; if(step<TOTAL){step++;render();} else submit(); });
+  backBtn.addEventListener('click',()=>{ if(step>1){step--;render();} });
+
+  form.addEventListener('input',e=>{
+    e.target.classList.remove('err');
+    const m=e.target.closest('.field')?.querySelector('.err-msg');
+    if(m && e.target.type!=='checkbox') m.classList.remove('show');
+  });
+
+  $('#commitGroup').addEventListener('change',e=>{    
+    e.target.closest('.check').classList.toggle('checked',e.target.checked);
+    if([...$('#commitGroup').querySelectorAll('input')].every(b=>b.checked)) $('#commitErr').classList.remove('show');
+  });
+  
+  $('#commitGroup').addEventListener('click',e=>{ if(e.target.closest('.inline-link')) e.stopPropagation(); });
+
+  const roomPref=$('#roomPref'), roomWrap=$('#roomNamesWrap');
+  roomPref.addEventListener('change',()=>{
+    roomWrap.hidden = !roomPref.checked;
+    if(!roomPref.checked) $('#roomNames').value='';
+  });
+
+  const promoGroup=$('#promoGroup');
+  if(promoGroup){
+    promoGroup.addEventListener('change',()=>{
+      promoGroup.querySelectorAll('.check').forEach(l=>l.classList.toggle('checked', l.querySelector('input').checked));
+      $('#promoErr').classList.remove('show');
+    });
+  }
+
+  function counter(elId,outId,max){
+    const el=$('#'+elId),out=$('#'+outId);
+    el.addEventListener('input',()=>{
+      const w=el.value.trim()?el.value.trim().split(/\s+/).length:0;
+      out.textContent=w; out.style.color=w>max?'#c0392b':'';
+    });
+  }
+  counter('soi','soiCount',250);
+  counter('lead','leadCount',150);
+
+  const drop=$('#drop'), resume=$('#resume'), fn=$('#filename'), fnt=$('#filenameText');
+  drop.addEventListener('click',()=>resume.click());
+  drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();resume.click();}});
+  resume.addEventListener('change',()=>{
+    if(resume.files.length){
+      fnt.textContent=resume.files[0].name;
+      fn.style.display='flex'; drop.classList.add('has');
+      $('#resumeErr').classList.remove('show'); drop.classList.remove('err');
+    }
+  });
+
+  const LABELS={
+    fullname:'Full legal name', preferred:'Preferred name', email:'Email', phone:'Phone',
+    citystate:'City, State', school:'Law school', grad:'Graduation',
+    commitments:'Commitments confirmed', statement:'Statement of interest',
+    leadership:'Leadership & involvement', roommate:'Roommate names',
+    resume:'Resume', additional:'Additional considerations', consent:'Announcement consent'
+  };
+
+  function trunc(t){t=(t||'').trim();return t? (t.length>54?t.slice(0,54)+'…':t):'';}
+
+  function buildSummary(){
+    const d=new FormData(form), box=$('#summary'); box.innerHTML='';
+    const rows={
+      fullname:d.get('Full legal name'), preferred:d.get('Preferred name'), email:d.get('Email'),
+      phone:d.get('Phone'), citystate:d.get('City, State'), school:d.get('Law school'), grad:d.get('Graduation (Mo/Yr)'),
+      commitments:[...$('#commitGroup').querySelectorAll('input')].every(b=>b.checked)?'All 5 confirmed':'Incomplete',
+      statement:trunc(d.get('Statement of interest')), leadership:trunc(d.get('Leadership & involvement')),
+      roommate:trunc(d.get('Roommate names')), resume: resume.files.length?resume.files[0].name:'',
+      additional:trunc(d.get('Additional considerations')),
+      consent: (document.querySelector('input[name="Announcement consent"]:checked')||{}).value || ''
+    };
+    const required=['fullname','email','phone','citystate','school','grad','statement','leadership','resume','consent'];
+    Object.keys(LABELS).forEach(k=>{
+      let v=(typeof rows[k]==='string')?rows[k].trim():rows[k];
+      const isReq=required.includes(k);
+      const row=document.createElement('div');
+      row.className='summary-row';
+      row.innerHTML=`<span class="k">${LABELS[k]}</span><span class="v ${(!v&&isReq)?'empty':''}">${v||(isReq?'Missing':'—')}</span>`;
+      box.appendChild(row);
+    });
+  }
+
+  // UPDATED SUBMIT FUNCTION FOR LOCAL BACKEND
+  async function submit(){
+    if(!validate())return;
+    nextBtn.disabled = true;
+    backBtn.disabled = true;
+    const original = nextBtn.textContent;
+    nextBtn.textContent = 'Sending…';
+
+    try{
+      const fd = new FormData(form);
+      
+      // Commitments text set karein
+      const allChecked = [...$('#commitGroup').querySelectorAll('input')].every(b=>b.checked);
+      fd.set('commitments', allChecked ? 'All 5 confirmed' : 'INCOMPLETE');
+
+      const res = await fetch(API_URL, {
+        method:'POST', 
+        body:fd
+      });
+
+      const result = await res.json();
+
+      if(result.success){
+        const prefName = form.elements['Preferred name'].value.trim();
+        const firstName = form.elements['Full legal name'].value.trim().split(' ')[0];
+        $('#doneName').textContent = prefName || firstName || 'applicant';
+        
+        app.style.display='none'; 
+        done.style.display='block'; 
+        window.scrollTo(0,0);
+      } else {
+        showSubmitError(result.message || 'Something went wrong. Please try again.', original);
+      }
+    } catch(err){
+      showSubmitError('We couldn’t reach the server. Check your connection and try again.', original);
+    }
+  }
+
+  function showSubmitError(msg, label){
+    nextBtn.disabled = false; 
+    backBtn.disabled = false; 
+    nextBtn.textContent = label;
+    let el = $('#submitError');
+    if(!el){
+      el = document.createElement('p');
+      el.id = 'submitError';
+      el.style.cssText = 'color:#c0392b;font-size:13.5px;font-weight:600;margin-top:14px;text-align:right';
+      document.querySelector('.nav').insertAdjacentElement('beforebegin', el);
+    }
+    el.textContent = msg;
+  }
+
+  form.elements['Date signed'].value=new Date().toISOString().slice(0,10);
+})();
+</script>
+</body>
+</html>
