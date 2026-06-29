@@ -229,7 +229,7 @@ app.get("/bar-exam-scholarship", (req, res) => {
 });
 
 app.get("/convention-access-scholarship", (req, res) => {
-  res.sendFile(path.join(__dirname, "NBA_LSD_2026_Convention_Access_Scholarship_FINAL.html"));
+  res.sendFile(path.join(__dirname, "final.html"));
 });
 
 
@@ -340,9 +340,9 @@ app.post("/send-nba-lsd", uploadFields, async (req, res) => {
 
 
 module.exports = app;
-// app.listen(3000, () => {
-//   console.log("Server is running on http://localhost:3000");
-// });
+app.listen(3000, () => {
+  console.log("Server is running on http://localhost:3000");
+});
 
 // end of file
 // module.exports = app;
