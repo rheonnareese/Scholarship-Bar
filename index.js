@@ -224,7 +224,7 @@ app.post("/send-bar-exam-email", barExamUploads, async (req, res) => {
 });
 
 
-app.get("/bar-exam-scholarship", (req, res) => {
+app.get("/NBA_LSD_Bar_Exam_Scholarship", (req, res) => {
   res.sendFile(path.join(__dirname, "bar.html"));
 });
 
